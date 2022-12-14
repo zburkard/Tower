@@ -71,14 +71,9 @@ export default {
       editable,
       async createEvent() {
         try {
-          // logger.log(editable.value)
-          // NOTE create album returns the res.data with our ID on it
           const event = await eventsService.createEvent(editable.value)
-          // NOTE clear the form by sitting the value of editable to an empyt object
           editable.value = {}
-          // NOTE hide the modal after the form submits
           Modal.getOrCreateInstance('#exampleModal').hide()
-          // NOTE use the id from the returned album to automatically push the user to that album's page, using the name form our supllied to object to load a page from router.js
           router.push({ name: 'Event', params: { eventId: event.id } })
         } catch (error) {
           logger.error(error)
