@@ -18,11 +18,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
-        <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
-        </li>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+            class="mdi mdi-plus-outline"> New Event</i></button>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
       <Login />
