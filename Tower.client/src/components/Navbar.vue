@@ -12,9 +12,9 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <router-link :to="{ name: 'Account' }">
-          <h3 class="text-light mx-5 mt-2">My Profile</h3>
+          <h4 class="text-light mx-5 mt-2">My Profile</h4>
         </router-link>
-        <button class="btn btn-outline-warning mx-5" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+        <button class="btn btn-outline-warning mx-5 mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
             class="mdi mdi-plus-outline"> New Event</i></button>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
@@ -39,7 +39,7 @@ a:hover {
 }
 
 .dark {
-  background-color: #2A2D3A;
+  background-color: #2a2d3a67;
 }
 
 .nav-link {

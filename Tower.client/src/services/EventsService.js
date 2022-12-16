@@ -12,6 +12,8 @@ class EventsService {
     const res = await api.get('api/events/' + eventId)
     logger.log('[GOT EVENT BY ID]', res.data)
     AppState.activeEvent = res.data
+    AppState.activeEvent.startDate = new Date(AppState.activeEvent.startDate).toLocaleDateString()
+    
   }
   async createEvent(body) {
     const res = await api.post('api/events', body)
@@ -26,6 +28,9 @@ class EventsService {
     if (index >= 0) {
       AppState.events.splice(index, 1)
     }
+  }
+  async getDate(){
+    AppState.todaysDate = new Date().toLocaleDateString()
   }
 }
 

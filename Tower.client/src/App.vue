@@ -5,7 +5,7 @@
   <main class="dark">
     <router-view />
   </main>
-  <footer class="bg-dark text-light sticky-bottom">
+  <footer class="navbar-dark text-light sticky-bottom">
     <h6>Tower Events 🦒</h6>
   </footer>
   <ModalComponent>
@@ -48,7 +48,7 @@ footer {
 }
 
 .navbar-dark {
-  background-color: #2a2d3a00;
-  backdrop-filter: blur 5px;
+  background-color: #2a2d3a3b;
+  backdrop-filter: blur(5px)
 }
 </style>

@@ -3,6 +3,7 @@
         <div :style="`background-image: url(${event.coverImg})`" class="row mt-3 rounded-bottom elevation-4 cover">
             <div class="col-11">
                 <h2 class="mt-4">{{ event.name }}</h2>
+                <h2 class="mt-4">{{ event.startDate }}</h2>
                 <h5 class="mt-4 category">{{ event.type }}</h5>
                 <h5 class="mt-4">Location: {{ event.location }}</h5>
                 <p class="mt-4">{{ event.description }}</p>

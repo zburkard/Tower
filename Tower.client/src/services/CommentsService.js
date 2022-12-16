@@ -18,7 +18,7 @@ class CommentsService {
     logger.log('[Removed Comment]', res.data)
     let index = AppState.comments.findIndex(c => c.id == id)
     if (index >= 0) {
-      AppState.splice(index, 1)
+      AppState.comments.splice(index, 1)
     }
   }
 }

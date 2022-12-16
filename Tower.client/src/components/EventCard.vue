@@ -1,13 +1,5 @@
 <template>
-  <!-- <router-link :to="{ name: 'Event', params: { eventId: event.id } }">
-    <div class="elevation-4 rounded bg-blur">
-      <img :src="event.coverImg" alt="" class="img-fluid card-img rounded-top">
-      <div class="text-center fw-bold p-1 text-light">
-        <h5>{{ event.name }}</h5>
-      </div>
-    </div>
-  </router-link> -->
-  <router-link :to="{ name: 'Event', params: { eventId: event.id } }">
+  <router-link v-if="event.startDate >= todaysDate" :to="{ name: 'Event', params: { eventId: event.id } }">
     <div class="cols">
       <div class="col" ontouchstart="this.classList.toggle('hover');">
         <div class="container">
@@ -16,10 +8,11 @@
               <p>{{ event.name }}</p>
             </div>
           </div>
-          <div class="back">
+          <div class="back" :style="`background-image: url(${event.coverImg})`">
             <div class="inner">
               <p>{{ event.location }}</p>
-              <p>Tickets Left:{{ event.capacity }}</p>
+              <p v-if="event.isCanceled == false">Tickets Left: {{ event.capacity }}</p>
+              <p v-else class="text-danger">Event Canceled</p>
             </div>
           </div>
         </div>
@@ -29,13 +22,25 @@
 </template>
 
 <script>
+async function getDate(){
+  await eventsService.getDate()
+}
+
+import { onMounted, ref, computed } from "vue";
+import { AppState } from "../AppState";
+import { eventsService } from '../services/EventsService.js';
 export default {
   props: {
     event: { type: Object, required: true }
   },
   setup() {
+    onMounted(()=> {
+      getDate()
+    })
 
-    return {}
+    return {
+      todaysDate: computed(()=> AppState.todaysDate)
+    }
 
   }
 }
