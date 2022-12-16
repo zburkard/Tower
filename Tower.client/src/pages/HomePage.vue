@@ -1,7 +1,15 @@
 <template>
+  <div class="container-fluid sticky-top">
+    <div class="row justify-content-end">
+      <div class="col-2 mt-2">
+        <button v-if="route.name == 'Home'" class="btn btn-warning mx-5 mt-1" data-bs-toggle="modal"
+          data-bs-target="#exampleModal"><i class="mdi mdi-plus-outline"> New Event</i></button>
+      </div>
+    </div>
+  </div>
   <div class="container">
     <div class="row mt-3">
-      <img src="../assets/img/unsplash_kcJsQ3PJrYU.png">
+      <img src="../assets/img/unsplash_kcJsQ3PJrYU.png" alt="">
     </div>
   </div>
   <div class="container">
@@ -31,8 +39,10 @@ import EventCard from "../components/EventCard.vue";
 import { eventsService } from '../services/EventsService.js';
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
+import { useRoute } from "vue-router";
 export default {
   setup() {
+    const route = useRoute()
     const filterBy = ref("");
     async function getEvents() {
       try {
@@ -47,6 +57,7 @@ export default {
       getEvents();
     });
     return {
+      route,
       filterBy,
       account: computed(() => AppState.account),
       events: computed(() => {

@@ -14,8 +14,6 @@
         <router-link :to="{ name: 'Account' }">
           <h4 class="text-light mx-5 mt-2">My Profile</h4>
         </router-link>
-        <button class="btn btn-outline-warning mx-5 mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-            class="mdi mdi-plus-outline"> New Event</i></button>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
       <Login />
@@ -24,10 +22,14 @@
 </template>
 
 <script>
+import { useRoute } from "vue-router";
 import Login from './Login.vue'
 export default {
   setup() {
-    return {}
+    const route = useRoute()
+    return {
+      route
+    }
   },
   components: { Login }
 }

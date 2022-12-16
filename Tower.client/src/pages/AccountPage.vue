@@ -4,7 +4,7 @@
     <img class="rounded-circle prof-img" :src="account.picture" alt="" />
   </div>
   <div class="row">
-    <h4 class="text-light mx-3">My Events</h4>
+    <h3 class="text-light mx-3"><u>Your Ticketed Events</u></h3>
   </div>
   <div class="row justify-content-center">
     <!-- <div v-if="account.id && myEvents.length > 0" > -->

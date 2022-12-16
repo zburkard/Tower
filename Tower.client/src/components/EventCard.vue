@@ -1,5 +1,5 @@
 <template>
-  <router-link v-if="event.startDate >= todaysDate" :to="{ name: 'Event', params: { eventId: event.id } }">
+  <router-link :to="{ name: 'Event', params: { eventId: event.id } }">
     <div class="cols">
       <div class="col" ontouchstart="this.classList.toggle('hover');">
         <div class="container">
@@ -11,8 +11,9 @@
           <div class="back" :style="`background-image: url(${event.coverImg})`">
             <div class="inner">
               <p>{{ event.location }}</p>
-              <p v-if="event.isCanceled == false">Tickets Left: {{ event.capacity }}</p>
-              <p v-else class="text-danger">Event Canceled</p>
+              <p v-if="event.isCanceled == false && event.capacity >= 20">Tickets Left: {{ event.capacity }}</p>
+              <p v-else-if="event.isCanceled == true" class="text-light bg-danger">Event Canceled</p>
+              <p v-else-if="event.capacity <= 20" class="text-danger">Tickets Left: {{ event.capacity }}</p>
             </div>
           </div>
         </div>
@@ -22,9 +23,9 @@
 </template>
 
 <script>
-async function getDate(){
-  await eventsService.getDate()
-}
+// async function getDate() {
+//   await eventsService.getDate()
+// }
 
 import { onMounted, ref, computed } from "vue";
 import { AppState } from "../AppState";
@@ -34,12 +35,12 @@ export default {
     event: { type: Object, required: true }
   },
   setup() {
-    onMounted(()=> {
-      getDate()
-    })
+    // onMounted(() => {
+    //   getDate()
+    // })
 
     return {
-      todaysDate: computed(()=> AppState.todaysDate)
+      // todaysDate: computed(() => AppState.todaysDate)
     }
 
   }
