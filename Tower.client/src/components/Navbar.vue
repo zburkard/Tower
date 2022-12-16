@@ -1,24 +1,20 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+  <nav class="navbar navbar-expand-lg px-3 dark">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/cw-logo.png" height="45" />
+      <div class="d-flex align-items-center mt-1">
+        <img alt="logo" src="../assets/img/Logo.png" height="45" />
       </div>
     </router-link>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
-        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+        <router-link :to="{ name: 'Account' }">
+          <h3 class="text-light mx-5 mt-2">My Profile</h3>
+        </router-link>
+        <button class="btn btn-outline-warning mx-5" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
             class="mdi mdi-plus-outline"> New Event</i></button>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
@@ -42,6 +38,10 @@ a:hover {
   text-decoration: none;
 }
 
+.dark {
+  background-color: #2A2D3A;
+}
+
 .nav-link {
   text-transform: uppercase;
 }
@@ -57,5 +57,4 @@ a:hover {
     height: 64px;
   }
 }
-
 </style>

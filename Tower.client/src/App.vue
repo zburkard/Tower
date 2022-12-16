@@ -1,12 +1,12 @@
 <template>
-  <header>
+  <header class="navbar-dark sticky-top">
     <Navbar />
   </header>
-  <main>
+  <main class="dark">
     <router-view />
   </main>
-   <footer class="bg-dark text-light">
-    Made with 💖 by CodeWorks
+  <footer class="bg-dark text-light sticky-bottom">
+    <h6>Tower Events 🦒</h6>
   </footer>
   <ModalComponent>
     <EventForm />
@@ -32,7 +32,7 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
-:root{
+:root {
   --main-height: calc(100vh - 32px - 64px);
 }
 
@@ -41,5 +41,14 @@ footer {
   display: grid;
   place-content: center;
   height: 32px;
+}
+
+.dark {
+  background-color: #2A2D3A;
+}
+
+.navbar-dark {
+  background-color: #2a2d3a00;
+  backdrop-filter: blur 5px;
 }
 </style>

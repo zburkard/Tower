@@ -10,15 +10,18 @@
         <label for="name">Event Name</label>
       </div>
       <div class="form-floating mb-3 elevation-5">
-        <input v-model="editable.location" type="text" required class="form-control" id="location" placeholder="Event Location">
+        <input v-model="editable.location" type="text" required class="form-control" id="location"
+          placeholder="Event Location">
         <label for="location">Event Location</label>
       </div>
       <div class="form-floating mb-3 elevation-5">
-        <input v-model="editable.description" type="text" required class="form-control" id="description" placeholder="Event Description">
+        <input v-model="editable.description" type="text" required class="form-control" id="description"
+          placeholder="Event Description">
         <label for="description">Event Description</label>
       </div>
       <div class="form-floating mb-3 elevation-5">
-        <input v-model="editable.capacity" type="number" required class="form-control" id="capacity" placeholder="Event Capacity">
+        <input v-model="editable.capacity" type="number" required class="form-control" id="capacity"
+          placeholder="Event Capacity">
         <label for="capacity">Event Capacity</label>
       </div>
       <div class="form-floating mb-3 elevation-5">
@@ -36,17 +39,10 @@
         </select>
         <label for="floatingSelect">Type of Event</label>
       </div>
-      <label for="date" class="col-1 col-form-label">Date</label>
-    <div class="col-5">
-      <div class="input-group date" id="datepicker">
-        <input v-model="editable.startDate" type="text" class="form-control" id="date"/>
-        <span class="input-group-append">
-          <span class="input-group-text bg-light d-block">
-            <i class="mdi mdi-calendar"></i>
-          </span>
-        </span>
+      <div class="form-floating mb-3 elevation-5">
+        <input v-model="editable.startDate" type="date" required class="form-control" id="startDate">
+        <label for="startDate">Start Date</label>
       </div>
-    </div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
