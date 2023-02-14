@@ -78,7 +78,7 @@
                         <h4 class="text-light">{{ c.creator.name }}</h4>
                     </div>
                     <div class="col-6 d-flex justify-content-between align-items-center">
-                        <div class="text-light fs-4">{{ c.body }}</div>
+                        <p class="text-dark bg-light p-1 rounded mt-3">{{ c.body }}</p>
                         <button v-if="account.id == c.creatorId" class="btn btn-danger"
                             @click="removeComment(c.id)">Remove Comment</button>
 
@@ -141,6 +141,7 @@ export default {
             async cancelEvent(eventId) {
                 try {
                     await Pop.confirm()
+                    await Pop.confirm('Are you sure? You will have to make a new event')
                     await eventsService.cancelEvent(eventId)
                 } catch (error) {
                     logger.error(error)
@@ -178,6 +179,7 @@ export default {
             },
             async removeComment(commentId) {
                 try {
+                    await Pop.confirm()
                     await commentsService.removeComment(commentId)
                 } catch (error) {
 
