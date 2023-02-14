@@ -140,7 +140,6 @@ export default {
             foundMe: computed(() => AppState.tickets.find(t => t.accountId == AppState.account.id)),
             async cancelEvent(eventId) {
                 try {
-                    await Pop.confirm()
                     await Pop.confirm('Are you sure? You will have to make a new event')
                     await eventsService.cancelEvent(eventId)
                 } catch (error) {
